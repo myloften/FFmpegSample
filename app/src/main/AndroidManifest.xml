@@ -21,6 +21,8 @@
         </activity>
         <activity android:name=".decodevideo.DecodeVideoActivity">
         </activity>
+        <activity android:name=".decodeaudio.DecodeAudioActivity">
+        </activity>
     </application>
 
 </manifest>

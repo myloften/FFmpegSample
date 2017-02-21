@@ -9,7 +9,8 @@ set(distribution_DIR ${CMAKE_SOURCE_DIR}/src/main/jniLibs)
 add_library( ffmpeg-lib
              SHARED
              src/main/cpp/ffmpeg-lib.cpp
-             src/main/cpp/decode-video.cpp)
+             src/main/cpp/decode-video.cpp
+             src/main/cpp/decode-audio.cpp)
 
 add_library( libffmpeg
              SHARED

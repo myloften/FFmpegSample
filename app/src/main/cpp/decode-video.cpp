@@ -3,7 +3,7 @@
 #include <android/native_window.h>
 #include <android/native_window_jni.h>
 
-extern "C"{
+extern "C" {
 #include "libavcodec/avcodec.h"
 #include "libavformat/avformat.h"
 #include "libswscale/swscale.h"
@@ -31,7 +31,8 @@ Java_com_loften_ffmpegsample_ffmpeglib_MainFFmpeg_decodeVideo(JNIEnv *env, jobje
         return -1;
     }
 
-    //找到第一个视频流
+
+    //找到视频流索引
     int videoStream = -1;
     for (int i = 0; i < pFormatCtx->nb_streams; i++) {
         if(pFormatCtx->streams[i]->codec->codec_type == AVMEDIA_TYPE_VIDEO
@@ -145,13 +146,10 @@ Java_com_loften_ffmpegsample_ffmpeglib_MainFFmpeg_decodeVideo(JNIEnv *env, jobje
     av_free(buffer);
     av_free(pFrameRGBA);
 
-    // Free the YUV frame
-    av_free(pFrame);
 
-    // Close the codecs
+    av_free(pFrame);
     avcodec_close(pCodecCtx);
 
-    // Close the video file
     avformat_close_input(&pFormatCtx);
     env->ReleaseStringUTFChars(path_, path);
     return 0;

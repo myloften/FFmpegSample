@@ -38,6 +38,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
             @Override
             public void onClick(View v) {
                 DecodeVideoActivity.startActivity(mContext, mDatas.get(position).getPath());
+                //DecodeAudioActivity.startActivity(mContext, mDatas.get(position).getPath());
             }
         });
     }
