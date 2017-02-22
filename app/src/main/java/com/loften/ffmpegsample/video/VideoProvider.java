@@ -50,6 +50,7 @@ public class VideoProvider implements IVideoProvider {
                     long size = cursor
                             .getLong(cursor
                                     .getColumnIndexOrThrow(MediaStore.Video.Media.SIZE));
+
                     VideoInfo videoInfo = new VideoInfo(id, title, album, artist, displayName,
                             mimeType, path, size, duration);
                     list.add(videoInfo);
@@ -59,4 +60,5 @@ public class VideoProvider implements IVideoProvider {
         }
         return list;
     }
+
 }

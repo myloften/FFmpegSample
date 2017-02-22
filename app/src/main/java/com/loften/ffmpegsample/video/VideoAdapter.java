@@ -1,6 +1,8 @@
 package com.loften.ffmpegsample.video;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.media.ThumbnailUtils;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +16,10 @@ import com.loften.ffmpegsample.decodevideo.DecodeVideoActivity;
 import java.util.List;
 
 public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHolder> {
+
+    public List<VideoInfo> getDatas() {
+        return mDatas;
+    }
 
     private List<VideoInfo> mDatas;
     private Context mContext;
@@ -32,6 +38,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
 
     @Override
     public void onBindViewHolder(VideoViewHolder holder, final int position) {
+        holder.video_img.setImageBitmap(mDatas.get(position).getImg());
         holder.video_title.setText(mDatas.get(position).getTitle());
         holder.video_time.setText(mDatas.get(position).getDuration()/1000+"");
         holder.rootView.setOnClickListener(new View.OnClickListener() {
@@ -62,5 +69,13 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
             this.video_time = (TextView) rootView.findViewById(R.id.video_time);
         }
 
+    }
+
+    //获取视频缩略图
+    private Bitmap getVideoThumbnail(String videoPath, int width , int height, int kind){
+        Bitmap bitmap = null;
+        bitmap = ThumbnailUtils.createVideoThumbnail(videoPath, kind);
+        bitmap = ThumbnailUtils.extractThumbnail(bitmap, width, height, ThumbnailUtils.OPTIONS_RECYCLE_INPUT);
+        return bitmap;
     }
 }

@@ -118,7 +118,7 @@ Java_com_loften_ffmpegsample_ffmpeglib_MainFFmpeg_decodeVideo(JNIEnv *env, jobje
             //并不是decode一次就可以解码出一帧
             if(frameFinished){
                 //锁定本地窗口缓冲区
-                ANativeWindow_lock(nativeWindow, &windowBuffer,0);
+                ANativeWindow_lock(nativeWindow, &windowBuffer, 0);
 
                 //格式转换
                 sws_scale(sws_ctx, (uint8_t const *const *) pFrame->data,

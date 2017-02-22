@@ -1,5 +1,7 @@
 package com.loften.ffmpegsample.video;
 
+import android.graphics.Bitmap;
+
 import java.io.Serializable;
 
 public class VideoInfo implements Serializable {
@@ -13,6 +15,7 @@ public class VideoInfo implements Serializable {
     private String path;
     private long size;
     private long duration;
+    private Bitmap img;
 
     public VideoInfo(int id, String title, String album, String artist, String displayName, String mimeType, String path, long size, long duration) {
         this.id = id;
@@ -99,4 +102,11 @@ public class VideoInfo implements Serializable {
         this.title = title;
     }
 
+    public Bitmap getImg() {
+        return img;
+    }
+
+    public void setImg(Bitmap img) {
+        this.img = img;
+    }
 }
