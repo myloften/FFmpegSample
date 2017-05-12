@@ -3,6 +3,7 @@
           package="com.loften.ffmpegsample">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -22,6 +23,8 @@
         <activity android:name=".decodevideo.DecodeVideoActivity">
         </activity>
         <activity android:name=".decodeaudio.DecodeAudioActivity">
+        </activity>
+        <activity android:name=".live555.TestLive555Activity">
         </activity>
     </application>
 

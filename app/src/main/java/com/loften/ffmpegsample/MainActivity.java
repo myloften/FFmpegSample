@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
+import com.loften.ffmpegsample.live555.TestLive555Activity;
 import com.loften.ffmpegsample.video.VideoActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -31,6 +32,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, VideoActivity.class));
+            }
+        });
+        findViewById(R.id.btn_test_live555).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TestLive555Activity.startActivity(MainActivity.this);
             }
         });
     }

@@ -4,7 +4,7 @@
 
 #define MAX_AUDIO_FRAME_SIZE  192000
 
-extern "C"{
+extern "C" {
 #include "libavformat/avformat.h"
 #include "libswresample/swresample.h"
 
